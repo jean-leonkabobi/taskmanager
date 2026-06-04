@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: taskmanager
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/taskmanager_db
+    username: taskuser
+    password: TasKWord#1
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    default-property-inclusion: non_null
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: UTC
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+# JWT Configuration
+jwt:
+  secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+  expiration: 86400000 # 24 heures
+
+# Logging
+logging:
+  level:
+    com.taskmanager: DEBUG
+    org.springframework.security: DEBUG
